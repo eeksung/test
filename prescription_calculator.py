@@ -200,10 +200,8 @@ class PrescriptionCalculator(tk.Tk):
             relief="solid", bd=1,
         )
         self.entry_date.pack(side="left", padx=(8, 0), ipady=4)
-        self.entry_date.insert(0, "예: 2026.03.15")
-        self.entry_date.config(fg="grey")
-        self.entry_date.bind("<FocusIn>", lambda e: self._clear_placeholder(self.entry_date, "예: 2026.03.15"))
-        self.entry_date.bind("<FocusOut>", lambda e: self._set_placeholder(self.entry_date, "예: 2026.03.15"))
+        default_date = (datetime.today() + timedelta(days=28)).strftime("%Y.%m.%d")
+        self.entry_date.insert(0, default_date)
 
         ttk.Label(
             card1,
@@ -268,7 +266,6 @@ class PrescriptionCalculator(tk.Tk):
             relief="solid", bd=1,
         )
         self.entry_days.pack(side="left", padx=(8, 4), ipady=4)
-        self.entry_days.insert(0, "28")
 
         ttk.Label(row2, text="일", background=self.CARD_BG,
                   font=(self.FONT_FAMILY, 10)).pack(side="left")
