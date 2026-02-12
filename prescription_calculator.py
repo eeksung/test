@@ -22,8 +22,13 @@ def parse_korean_date(text: str) -> datetime:
         2026.02.15 / 2026.2.15
         2026-02-15 / 2026-2-15
         2026/02/15 / 2026/2/15
+        20260215 (숫자 8자리)
     """
     text = text.strip()
+
+    # 숫자 8자리 (예: 20260315)
+    if text.isdigit() and len(text) == 8:
+        return datetime.strptime(text, "%Y%m%d")
 
     # "년", "월", "일" 포맷
     for fmt in ("%Y년 %m월 %d일", "%Y년%m월%d일",
@@ -202,7 +207,7 @@ class PrescriptionCalculator(tk.Tk):
 
         ttk.Label(
             card1,
-            text="지원 형식: 2026년 3월 15일, 2026.03.15, 2026-03-15",
+            text="지원 형식: 2026년 3월 15일, 2026.03.15, 2026-03-15, 20260315",
             style="Desc.TLabel",
         ).pack(anchor="w", padx=15, pady=(0, 4))
 
@@ -333,7 +338,8 @@ class PrescriptionCalculator(tk.Tk):
                 "  • 2026년 3월 15일\n"
                 "  • 2026.03.15\n"
                 "  • 2026-03-15\n"
-                "  • 2026/03/15",
+                "  • 2026/03/15\n"
+                "  • 20260315 (숫자 8자리)",
             )
             return
 
