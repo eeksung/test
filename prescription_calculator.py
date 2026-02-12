@@ -200,8 +200,6 @@ class PrescriptionCalculator(tk.Tk):
             relief="solid", bd=1,
         )
         self.entry_date.pack(side="left", padx=(8, 0), ipady=4)
-        default_date = (datetime.today() + timedelta(days=28)).strftime("%Y.%m.%d")
-        self.entry_date.insert(0, default_date)
 
         ttk.Label(
             card1,
