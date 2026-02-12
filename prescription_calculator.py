@@ -109,7 +109,7 @@ class PrescriptionCalculator(tk.Tk):
             "Subtitle.TLabel",
             background=self.BG,
             foreground=self.TEXT_LIGHT,
-            font=(self.FONT_FAMILY, 9),
+            font=(self.FONT_FAMILY, 10),
         )
         style.configure(
             "Section.TLabel",
@@ -121,7 +121,7 @@ class PrescriptionCalculator(tk.Tk):
             "Desc.TLabel",
             background=self.CARD_BG,
             foreground=self.TEXT_LIGHT,
-            font=(self.FONT_FAMILY, 9),
+            font=(self.FONT_FAMILY, 10),
         )
         style.configure(
             "Result.TLabel",
@@ -139,19 +139,19 @@ class PrescriptionCalculator(tk.Tk):
             "ResultSub.TLabel",
             background=self.RESULT_BG,
             foreground=self.TEXT_LIGHT,
-            font=(self.FONT_FAMILY, 9),
+            font=(self.FONT_FAMILY, 10),
         )
         style.configure(
             "ResultSub2.TLabel",
             background=self.RESULT_BG2,
             foreground=self.TEXT_LIGHT,
-            font=(self.FONT_FAMILY, 9),
+            font=(self.FONT_FAMILY, 10),
         )
         style.configure(
             "Warn.TLabel",
             background=self.CARD_BG,
             foreground=self.WARN_COLOR,
-            font=(self.FONT_FAMILY, 9),
+            font=(self.FONT_FAMILY, 10),
         )
 
     # ----- UI 빌드 --------------------------------------------------------
@@ -268,6 +268,7 @@ class PrescriptionCalculator(tk.Tk):
             relief="solid", bd=1,
         )
         self.entry_days.pack(side="left", padx=(8, 4), ipady=4)
+        self.entry_days.insert(0, "28")
 
         ttk.Label(row2, text="일", background=self.CARD_BG,
                   font=(self.FONT_FAMILY, 10)).pack(side="left")
